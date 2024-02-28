@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // fetching api ------------------------>
+    const api = fetch('https://jsonplaceholder.typicode.com/posts');
+
+    // function for asyncronous programming ------------------------>
+    async function data() {
+
+        // error handling using try catch  --------------->
+        try {
+            let info = await api;
+
+            // converted api to json ----------------------->
+            let convert = await info.json();
+
+        // created array to store first five post's title ------------->
+            let store = [];
+
+            // loop over the json ------------------->
+            for (let x of convert) {
+
+                if (x.id > 5) {
+                    break;
+                }
+                else {
+                    // pushing first five posts into new array named store --------------->
+                    store.push(x.title);
+                }
+            }
+            console.log(store);
+        }
+        catch (err) {
+            console.log("error is " + err);
+        }
+    }
+
+    data();
+</script>
+
+</html>

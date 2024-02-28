@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acending order</title>
+</head>
+
+<body>
+</body>
+<script>
+    let array = ['J', 'Z', 'D', 'Q', 'L', 'W', 'A', 'H', 'Y', 'K', 'G', 'N', 'V', 'R', 'P', 'X', 'C', 'M', 'F', 'O', 'U', 'S', 'I', 'E', 'T', 'B'];
+    asciiArray = [];
+    for (let i = 0; i < array.length; i++) {
+
+        // changing characters into ascii values ------------->
+
+        asciiArray.push(array[i].charCodeAt(0));
+
+        for (let x = 0; x < asciiArray.length; x++) {
+            for (let y = 0; y < asciiArray.length; y++) {
+                let empty;
+                if (asciiArray[x] < asciiArray[y]) {
+                    empty = asciiArray[x];
+                    asciiArray[x] = asciiArray[y];
+                    asciiArray[y] = empty;
+                }
+            }
+        }
+
+    }
+    // we get ascii values -------------->
+    console.log(asciiArray);
+
+    let sortedVal = [];
+    for (let j = 0; j < asciiArray.length; j++) {
+        
+        // ascii values to alphabets ---------------------->
+        let chars = String.fromCharCode(asciiArray[j]);
+
+        // pushing characters into new array --------------->
+        sortedVal.push(chars);
+    }
+    console.log(sortedVal);
+</script>
+
+</html>
